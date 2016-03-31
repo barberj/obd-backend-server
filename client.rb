@@ -5,8 +5,7 @@ def connect
   port = 2000
   s = TCPSocket.open(hostname, port)
 
-  while line = s.gets   # Read lines from the socket
-    puts line.chop      # And print with platform line terminator
-  end
+  s.puts(Time.now.ctime)
+  s.puts "Closing the connection. Bye!"
   s.close
 end
